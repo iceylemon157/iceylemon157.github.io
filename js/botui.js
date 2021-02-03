@@ -22,23 +22,23 @@ function bot_ui_ini() {
     var botui = new BotUI("hello-mashiro")
     botui.message.add({
         delay: 800,
-        content: "Hi, there👋"
+        content: "Hello！！"
     }).then(function () {
         botui.message.add({
             delay: 1100,
-            content: "这里是 Mashiro"
+            content: "這裡是 iceylemon"
         }).then(function () {
             botui.message.add({
                 delay: 1100,
-                content: "一个可爱的蓝孩子~"
+                content: "一顆不會打程式的檸檬QQ"
             }).then(function () {
                 botui.action.button({
                     delay: 1600,
                     action: [{
-                        text: "然后呢？ 😃",
+                        text: "然後呢？ 😃",
                         value: "sure"
                     }, {
-                        text: "少废话！ 🙄",
+                        text: "少廢話！ 🙄",
                         value: "skip"
                     }]
                 }).then(function (a) {
@@ -64,44 +64,49 @@ function bot_ui_ini() {
         },
         secondpart = function () {
             botui.message.add({
-                delay: 1500,
-                content: "目前就读于上海财经大学"
+            	delay: 1500,
+            	content: "我有另外一個常用的暱稱叫做全糖檸檬汁"
             }).then(function () {
-                botui.message.add({
-                    delay: 1500,
-                    content: "向往技术却误入商科，但后来喜欢上了经济学…"
-                }).then(function () {
-                    botui.message.add({
-                        delay: 1200,
-                        content: "因为数据分析也需要Coder嘛"
-                    }).then(function () {
-                        botui.message.add({
-                            delay: 1500,
-                            content: "主攻 R 语言和 Python，略懂 STATA，偶尔也折腾 HTML/CSS/JavaScript/PHP"
-                        }).then(function () {
-                            botui.message.add({
-                                delay: 1500,
-                                content: "研究的方向，是经济/金融方向的数据分析（data science）以及机器学习（machine learning）"
-                            }).then(function () {
-                                botui.message.add({
-                                    delay: 1800,
-                                    content: "喜欢画画，希望有一天能够被称为画师"
-                                }).then(function () {
-                                    botui.action.button({
-                                        delay: 1100,
-                                        action: [{
-                                            text: "为什么叫Mashiro呢？ 🤔",
-                                            value: "why-mashiro"
-                                        }]
-                                    }).then(function (a) {
-                                        thirdpart()
-                                    })
-                                })
-                            })
-                        })
-                    })
-                })
-            })
+	            botui.message.add({
+	                delay: 1500,
+	                content: "目前是一個不怎麼樣的的競程玩家"
+	            }).then(function () {
+	                botui.message.add({
+	                    delay: 1500,
+	                    content: "雖然沒有很強但是覺得很好玩！"
+	                }).then(function () {
+	                    botui.message.add({
+	                        delay: 1200,
+	                        content: "靠著這種心態一直在努力打程式中"
+	                    }).then(function () {
+	                    	botui.action.button({
+	        	                delay: 1100,
+	                            action: [{
+	                                text: "為什麼叫全糖檸檬汁呢？ 🤔",
+	                                value: "why-iclmn"
+	                            }, {
+	                            	text: "不想聽了好無聊...",
+	                            	value: "bored"
+	                            }]
+	                        }).then(function (a) {
+	                        	"why-iclmn" == a.value && thirdpart();
+	                        	"bored" == a.value && bored()
+	                    	})
+	                	})
+	            	})
+	        	})
+	        })
+        },
+        bored = function () {
+        	botui.message.add({
+        		delay: 1000,
+        		content: "那今天就到這裡啦!OUO"
+        	}).then(function () {
+        		botui.message.add({
+        			delay: 1000,
+        			content: "如果還想要繼續了解我可以私訊我唷OuO"
+        		})
+        	})
         },
         thirdpart = function () {
             botui.message.add({
