@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  
+  <title itemprop="name">IOIC2021 | iceylemon的刷水題之旅</title>
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+SerifMerriweather|Merriweather+Sans|Source+Code+Pro|Ubuntu:400,700|Noto+Serif+SC" media="all">
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+  <link rel="stylesheet" id="saukra_css-css" href="/css/style.css" type="text/css" media="all">
+  <link rel="stylesheet" href="/css/lib.min.css" media="all">
+  <link rel="stylesheet" href="/css/font.css" media="all">
+  <link rel="stylesheet" href="/css/insight.css" media="all">
+  <link rel="stylesheet" href="/css/jquery.fancybox.min.css" media="all">
+  <link rel="stylesheet" href="/css/zoom.css" media="all">
+  <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<!--   <link rel="stylesheet" id="saukra_css-css" href="https://2heng.xin/wp-content/cache/autoptimize/css/autoptimize_ad42a61f4c7d4bdd9f91afcff6b5dda5.css
+" type="text/css" media="all"> -->
+  <script>
+  /*Initial Variables*/
+  var mashiro_option = new Object();
+  var mashiro_global = new Object();
+  mashiro_option.NProgressON = true;
+  /* 
+   * 邮箱信息之类的东西可以填在这里，这些js变量基本都作用于sakura-app.js
+   * 这样的设置仅是为了方便在基于PHP开发的主题中设置js变量，既然移植到了Node上，我想或许可以精简这一逻辑吧
+   */
+  mashiro_option.email_domain = "";
+  mashiro_option.email_name = "";
+  mashiro_option.cookie_version_control = "";
+  mashiro_option.qzone_autocomplete = false;
+  mashiro_option.site_name = "iceylemon的刷水題之旅";
+  mashiro_option.author_name = "的刷水題之旅";
+  mashiro_option.site_url = "https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg";
+  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
+  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  mashiro_option.mathjax = "0";
+  mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
+  mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
+
+  // mashiro_option.jsdelivr_css_src = "https://cdn.jsdelivr.net/gh/moezx/cdn@3.4.5/css/lib.min.css";
+  // mashiro_option.float_player_on = true;
+
+  /*End of Initial Variables*/
+  </script>
+  <script type="text/javascript">
+  var bg = "https://i.imgur.com/RwofyPr.jpg,https://i.imgur.com/RB7WX2P.jpg,https://i.imgur.com/WoGHUuy.png,https://i.imgur.com/OCQhK5V.jpg,https://i.imgur.com/Tv2m05q.jpg,https://i.imgur.com/sgANnyJ.jpg,https://i.imgur.com/aGysRDG.jpg,https://i.imgur.com/9MEeU2k.jpg,https://i.imgur.com/SKhByWN.jpg,https://i.imgur.com/L1N7udq.jpg".split(",");
+  var bgindex = Math.floor(Math.random()*bg.length);
+  if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+    alert('朋友，IE浏览器未适配哦~');
+  }
+  </script>
+  <style type="text/css">
+  .hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}
+  </style>
+  <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
+  </style>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
+  <div class="scrollbar" id="bar">
+  </div>
+  <a href="#" class="cd-top faa-float animated"></a>
+  <section id="main-container">
+    <div class="headertop filter-dim">
+  <div id="banner_wave_1"></div>
+  <div id="banner_wave_2"></div>
+  <figure id="centerbg" class="centerbg">
+    <div class="focusinfo no-select">
+      <div class="header-tou">
+        <a target="_blank" rel="noopener" href="https://www.youtube.com/channel/UCdn5BQ06XqgXoAxIhbqw5Rg">
+          <img src="https://i.imgur.com/2DK6wa4.png">
+        </a>
+      </div>
+      <div class="header-info">
+        <p>coding好難咩噗TAT</p>
+        <div class="top-social_v2">
+          <li id="bg-pre">
+            <img class="flipx" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+          
+            
+              
+                <li>
+                  <a href="https://github.com/iceysheep157" target="_blank" class="social-github" title="github">
+                    <img src="/images/icon/GitHub-icon-light.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://codeforces.com/profile/iceylemon157" target="_blank" class="social-github" title="codeforces">
+                    <img src="/images/icon/codeforces.png">
+                  </a>
+                </li>
+              
+            
+              
+                <li>
+                  <a href="https://atcoder.jp/users/iceylemon157" target="_blank" class="social-github" title="atcoder">
+                    <img src="/images/icon/atcoder.png">
+                  </a>
+                </li>
+              
+            
+          
+          <li id="bg-next">
+            <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/next-b.svg">
+          </li>
+        </div>
+      </div>
+    </div>
+  </figure>
+  <div id="video-container" style="">
+    <video style="object-fit: fill" id="bgvideo" class="video" video-name="" src="" width="auto" preload="auto">
+    </video>
+    <div id="video-btn" class="loadvideo videolive">
+    </div>
+    <div id="video-add">
+    </div>
+    <div class="video-stu">
+    </div>
+  </div>
+  <div class="headertop-down faa-float animated" onclick="headertop_down()">
+    <span>
+      <i class="fa fa-chevron-down" aria-hidden="true">
+      </i>
+    </span>
+  </div>
+</div>
+    <div id="page" class="site wrapper">
+      <header class="site-header no-select gizle sabit" role="banner">
+  <div class="site-top">
+    <div class="site-branding">
+      <span class="site-title">
+        <span class="logolink moe-mashiro">
+          <a href="/">
+            <span class="sakurasono">iceylemon</span>
+            <span class="shironeko">的刷水題之旅</span>
+          </a>
+        </span>
+      </span>
+    </div>
+    <div class="searchbox search-form-submit">
+      <i class="iconfont js-toggle-search iconsearch icon-search">
+      </i>
+    </div>
+    <div id="show-nav" class="showNav mobile-fit">
+      <div class="line line1">
+      </div>
+      <div class="line line2">
+      </div>
+      <div class="line line3">
+      </div>
+    </div>
+    <div class="lower-cantiner">
+      <div class="lower">
+        <nav class="mobile-fit-control hide">
+          <ul id="menu-new" class="menu">
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+                    首頁
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/archives">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+                    目錄
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/archives">
+                          <i class="fa fa-code" aria-hidden="true"></i>
+                          目錄
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+              <li>
+                <a href="/links/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+                    友情連結
+                  </span>
+                </a>
+                
+              </li>
+            
+              <li>
+                <a href="/">
+                  <span class="faa-parent animated-hover">
+                    <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+                    關於
+                  </span>
+                </a>
+                
+                  <ul class="sub-menu">
+                    
+                      <li>
+                        <a href="/about/">
+                          <i class="fa fa-meetup" aria-hidden="true"></i>
+                          我？
+                        </a>
+                      </li>
+                    
+                  </ul>
+                
+              </li>
+            
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://i.imgur.com/L1N7udq.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://i.imgur.com/L1N7udq.jpg">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      IOIC2021</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="https://i.imgur.com/2DK6wa4.png">
+          </a>
+        </span>
+        <span>
+          <a href="">iceylemon157</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-2-2<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
+    </header>
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="IOIC-2021-心得文"><a href="#IOIC-2021-心得文" class="headerlink" title="IOIC 2021 心得文"></a>IOIC 2021 心得文</h1><p>第一次打心得文不知道要打什麼<br>下面應該會有很多廢文所以先把重要的打在這邊好了(X</p>
+<h2 id="心得："><a href="#心得：" class="headerlink" title="心得："></a>心得：</h2><p>這次我是第一次來IOIC，是除了全國賽以外第一次見到那麼多超級大電神。原本我以為他們會有種距離感，但是後來發現其實他們都超親切(?)的XD。(雖然我都沒有跟幾個電神講過話，我社交障礙QQQ)。我也有在營隊認識一些人，像是我的室友，雖然我晚上一直往外跑(X(抱歉QQ)。還有就是一群南一中的原本要帶我們去虎之穴XDD。結果我們太晚回去就沒有去了QQ。當然還有我的電隊友ub33&gt;&lt;。<br>來營隊我最大的感受就是感覺到自己有多弱(?)，大家都好強QAQ。每一天的練習賽我都只能負責打水題，也只打得出水題，甚至連某些水題都打不出來QQ，完全都在靠隊友(x。看來我練的題目還是太少了，而且我連經典題都不會，有夠沒救w。<br>IOIC教的東西我大半都沒有學過，但不知道是講師太強還是怎麼樣，我想聽的大部分都聽的還蠻懂的XD。原本預期沒有想聽的<del>字串</del>也搞懂了一些。而且IOIC教的內容我都覺得超酷的，超愛&lt;3。<br>這次的IOIC對我來說算是一個很新鮮的體驗吧。讓我感覺自己有稍微踏入競程圈的一點點了。我現在還是一個小菜雞，也希望今年初選可以好好的進一J，可以再見到這幾天一直關照我的ub33大電神XD。</p>
+<p>以下是流水帳w</p>
+<h2 id="Day-0"><a href="#Day-0" class="headerlink" title="Day 0"></a>Day 0</h2><p>提前一天去IOIC，因為前一天晚上有AA競程的課。我原本出門時間抓的很好，結果區間車就delay了QQ。因為我不知道火車會delay多久，所以我就先叫了計程車。結果那個計程車司機比火車還晚到QAQ。沒想到還沒到台北就燒雞了。結果就沒有搭上原本訂的火車，就只好多等一個小時了QQ。我原本還有委託我朋友幫我買subway，結果我的subway就代替我坐車到台北了QQQQ。<br><img src="https://i.imgur.com/EGgV08l.jpg"></p>
+<p>晚上的課老師在講有關騙分的理論。雖然之前有稍微聽過Dreamoon老師講過但是沒想到騙分原來那麼博大精深。除此之外我也另外發現我好像是全國賽可能前30名裡面CF rating最低的吧QQ。我到底怎麼打到18名的XDD。老師最近有跟我說我比較不會寫ad-hoc題型的題目，我覺得不僅是ad-hoc問題而已，好像只要是難題我好像都解不出來QQ。最近可能要來打一點CFㄌ。</p>
+<h2 id="Day-1"><a href="#Day-1" class="headerlink" title="Day 1"></a>Day 1</h2><p>第一天來到IOIC，看到了很多電神，有種自己超弱的感覺w。一開始是喵喵時間，是由電仁本人分享一些他在競程的心路歷程。之前就有聽說電喵人很kind，聽完他的分享除了感到受益良多之外也覺得他人感覺超nice的XD。\喵喵/<br>下午的課是圖論，第一次真的把搞懂HLD覺得很感動。然後自己看講義也大概了解重心剖分在做什麼，突然感覺自己好像稍微有用一點了。然後他講到虛樹的時候我就直接死在那邊了(X。圖論好難。<br>這次的團體賽我有跟ub33一組，超強的QQ。雖然第一天晚上是趣味賽，但是我還是直接被他carry了XDD。<br>回飯店想說把HLD刻出來看看好了，結果我就直接陷入瘋狂debug了。後來是在第三天的時候LittlePantsorz跟我說要怎麼修改子樹我才會的，我好爛QQ。</p>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><p>第二天早上是數論，教的內容有計數，群論，數論跟卷積。我的計數超弱QQ，然後又因為前一天太晚睡導致直接睡死QAQ。但是群論的部份我倒是聽的還蠻懂的，可能因為只是比較多的定義跟定理而已。(雖然我不太知道要怎麼應用OAO)。但後面的卷積我就直接陣亡了。數論好難。<br>下午的課是特石的進階資結，特石上課我覺得還蠻有趣的XD。這次資結上的東西除了時間線段樹有聽夢月講過以外我都完全沒聽過。直接聽懂的大概只有李超線段樹稍微有懂一點點吧。線段樹優化建圖直接燒雞。然後很巧的到了我最想聽的pattern的時候我的睡意又來了QQQQQ。雖然沒有睡著但是我連題目都不太懂QQ。後來LittlePants跟我講了很多次我才懂題目(x。後面還有一個超酷的技巧叫做segment tree beat，現在還沒有很懂他的複雜度的證明，我想我先把他當定理背起來好了&gt;&lt;。總結來說我覺得這堂課超酷的，學到了很多炫泡的線段樹而且特石上課風格我很喜歡ww。DS好難。<br>晚上是個人賽，除了燒機我沒想到其他的詞來形容我自己。雖然有做出pA，但是我是直接推規律解出來的，完全沒有解出來的感覺。<br>後來回飯店就開始買宵夜然後繼續de HLD 的 bug 了。</p>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><p>第三天早上是字串，是一個我完全幾乎沒有碰過的東西。我唯一會做的就是只有 rolling hash 而已。不知道為什麼我很抗拒學習字串，所以我一開始就有點半睡半聽的在聽字串課。但是後來講到AC自動機的時候我突然活過來了，然後就把KMP還有AC自動機大致上搞懂了。雖然我還不知道AC自動機可以幹嘛，但是這可能是我對字串演算法認識的開始？後來講到SA的時候我好像也有聽懂，但是因為不知道這些演算法到底可以幹嘛所以就還沒有去認真練他們了。希望我在初選前可以好好把這些東西用懂。字串好難。<br>下午的課是DP。我除了字串以外全部最弱的大概就是DP了吧。課程前半都是在講經典DP，沒什麼特別的。但是後面的DP優化突然噴出一大堆恐怖的東西我就不行了w。我曾經以為自己好像有搞懂四邊形不等式，但是實際上聽完之後我發現我只學了一半而已。除此之外還有斜率優化，分治優化，aliens優化，雖然我覺得講師講的不錯，但是我還是聽不懂QQ。DP好難。<br>晚上的團體賽我繼續負責解水題，但是我解dijkstra竟然解了一個多小時，我好沒救QQ。pG是一題字串題，是講師上課有講到的一到題目。但是我超級不會字串，所以我就想說先放掉他。最後我想到這題好像只要構造出一組解就可以了，但是我的coding速度TLE了就直接掰掰QQQQ。</p>
+<h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h2><p>今天早上的課程是flow，因為我沒有碰過flow，所以我前一天晚上有稍微預習一下flow在做什麼。雖然有稍微預習一下，但是我覺得yp的這堂課講的很好懂而且也超棒的&gt;&lt;。前面一直講到MCMF我都聽的懂他在做什麼。雖然後面到無源無匯那邊聽的有點吃力，但後來還是有把他看懂。小可惜的地方就是我還是不太懂全域最小割那邊，可能是因為時間有點小趕吧QQ。整體上來說我還蠻喜歡的。<br>下午是講到博奕論的部份，我一直覺得博奕論是個還蠻有趣的題型。所以之前有去看一些有關博奕論的小技巧。像是NIM博奕跟SG函數之類的。但我上完了這堂課才發現其實我學的東西很少QQ而且蠻不完整的。這節課我重新認識了組合賽局這個東東。但是組合賽局好難。<br>晚上的個人賽持續燒雞，我連實作題都不會，摳連。而且我還被題目輸入打錯坑了大概半個小時在debug吧QQ。</p>
+<h2 id="Day-5"><a href="#Day-5" class="headerlink" title="Day 5"></a>Day 5</h2><p>這是最後一天了，最後一天沒有上課，只有長達五個小時的團體賽。我們隊有點燒機QQ。我自己做出來的題目只有一題。雖然也有做出pA但是那是ub33跟我講這個要用mincut我才會的QQ。我應該要多練一點題目ㄉ，抱歉一直在雷隊友QQ。我覺得我應該也要可以做出pB的，但是因為我比較晚看然後又因為腦袋不太清楚所以就沒有想到自己哪裡有問題了QQ。<br>雖然這四天的練習賽我都打的不怎麼樣，但是我覺得我也從中學習到了不少。希望我可以在judge被關掉前好好把那些我沒有解出來的題目好好AC&gt;&lt;。</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
+      </article>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="https://i.imgur.com/2DK6wa4.png" itemprop="image" alt="iceylemon157" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author">iceylemon157</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>一個不怎麼樣的檸檬</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
+</div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  </script>
+
+
+    </div>    
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="請輸入關鍵字..."/>
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            // PAGES: '頁面',
+            CATEGORIES: '分類',
+            TAGS: '標籤',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+    <!-- <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 iceylemon157<br>
+      powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer> -->
+<footer id="colophon" class="site-footer" role="contentinfo">
+  <div class="site-info">
+    <div class="footertext">
+      <div class="img-preload">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/wordpress-rotating-ball-o.svg">
+        <img src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/disqus-preloader.svg">
+      </div>
+      <p style="color: #666666;">&copy 2018</p>
+    </div>
+    <div class="footer-device">
+    <p style="font-family: 'Ubuntu', sans-serif;">
+        <span style="color: #b9b9b9;">Theme <a href="https://github.com/honjun/hexo-theme-sakura" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Sakura</a> <i class="iconfont icon-sakura rotating" style="color: #ffc0cb;display:inline-block"></i> by <a href="https://2heng.xin/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Mashiro</a>&<a href="https://www.hojun.cn/" target="_blank" style="color: #b9b9b9;;text-decoration: underline dotted rgba(0, 0, 0, .1);">Hojun</a>, Powered by Hexo, Hosted by Coding Pages</a>
+        </span>
+      </p>
+    </div>
+  </div><!-- .site-info -->
+</footer>
+
+
+
+<!-- <script src="/js/tocbot.js"></script> -->
+<script type="text/javascript" src="/js/lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/InsightSearch.js"></script>
+<script type="text/javascript" src="/js/jquery.fancybox.min.js"></script>
+<script type="text/javascript" src="/js/zoom.min.js"></script>
+<script type="text/javascript" src="/js/sakura-app.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='//unpkg.com/valine@1.3.4/dist/Valine.min.js'></script>
+<script src="/js/botui.js"></script>
+<!-- 不蒜子 网页计数器 -->
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js"></script> -->
+<script type="text/javascript">
+/* <![CDATA[ */
+if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+  var Poi = {"pjax":"1","movies":{"url": "","name":"","live":"close"},"windowheight":"fixed","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+} else {
+  var Poi = {"pjax":"1","movies":{"url": "","name":"","live":"open"},"windowheight":"auto","codelamp":"close","ajaxurl":"","order":"asc","formpostion":"bottom"};
+}
+/* ]]> */
+
+</script>
+<script>
+$(document).ready(function() {
+  if ($(".toc").length > 0 && document.body.clientWidth > 1200) {
+    if ($(".pattern-center").length > 0) { //有图的情况
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -400,
+          scrollSmoothOffset: -85
+      });
+    } else {
+      tocbot.init({
+          // Where to render the table of contents.
+          tocSelector: '.toc', // 放置目录的容器
+          // Where to grab the headings to build the table of contents.
+          contentSelector: '.entry-content', // 正文内容所在
+          // Which headings to grab inside of the contentSelector element.
+          scrollSmooth: true,
+          headingSelector: 'h1, h2, h3, h4, h5', // 需要索引的标题级别
+          headingsOffset: -85,
+          scrollSmoothOffset: -85
+      });
+    }
+    var offsetTop = $('.toc').offset().top - 95;
+    window.onscroll = function() {
+      var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop >= offsetTop) {
+        $('.toc').addClass('toc-fixed');
+      } else {
+        $('.toc').removeClass('toc-fixed');
+      }
+    }
+  }
+});
+</script>
+
+    <div class="openNav no-select" style="height: 50px;">
+      <div class="iconflat no-select" style="width: 50px; height: 50px;">
+        <div class="icon"></div>
+      </div>
+      <div class="site-branding search-form-submit">
+        <i class="iconfont js-toggle-search iconsearch icon-search"></i>
+      </div>
+    </div>
+  </section>
+  <div id="mo-nav" class="">
+  <div class="m-avatar">
+    <img src="https://i.imgur.com/2DK6wa4.png">
+  </div>
+  <p style="text-align: center; color: #333; font-weight: 900; font-family: 'Ubuntu', sans-serif; letter-spacing: 1.5px">iceylemon的刷水題之旅</p>
+  <p style="text-align: center; word-spacing: 20px;">
+    
+      
+        <a href="http://github.com/honjun" class="fa fa-github" target="_blank" style="color: #333; margin-left:20px"></a>
+      
+        <a href="http://weibo.com/mashirozx?is_all=1" class="fa fa-weibo" target="_blank" style="color: #dd4b39; margin-left:20px"></a>
+      
+        <a href="https://wpa.qq.com/msgrd?v=3&uin=954655431&site=qq&menu=yes" class="fa fa-qq" target="_blank" style="color: #25c6fe; margin-left:20px"></a>
+      
+    
+  </p>
+  <ul id="menu-new-1" class="menu">
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-fort-awesome faa-shake" aria-hidden="true"></i>
+            首頁
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/archives">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-archive faa-shake" aria-hidden="true"></i>
+            目錄
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/archives">
+                  <i class="fa fa-code" aria-hidden="true"></i>
+                  目錄
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+      <li>
+        <a href="/links/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-link faa-shake" aria-hidden="true"></i>
+            友情連結
+          </span>
+        </a>
+        
+      </li>
+    
+      <li>
+        <a href="/">
+          <span class="faa-parent animated-hover">
+            <i class="fa  fa-leaf faa-wrench" aria-hidden="true"></i>
+            關於
+          </span>
+        </a>
+        
+          <ul class="sub-menu">
+            
+              <li>
+                <a href="/about/">
+                  <i class="fa fa-meetup" aria-hidden="true"></i>
+                  我？
+                </a>
+              </li>
+            
+          </ul>
+        
+      </li>
+    
+  </ul>
+  <p style="text-align: center; font-size: 13px; color: #b9b9b9;">&copy 2019 hexo-sakura</p>
+</div>
+<button onclick="topFunction()" class="mobile-cd-top" id="moblieGoTop" title="Go to top" style="display: none;"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+<style>
+  .aplayer .aplayer-lrc {
+    height: 35px;
+  }
+  .aplayer .aplayer-lrc p{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 18px !important;
+  }
+  .aplayer .aplayer-lrc p.aplayer-lrc-current{
+    color: #FF1493;
+  }
+  .aplayer.aplayer-narrow .aplayer-body{
+    left: -66px !important;
+  }
+  .aplayer.aplayer-fixed .aplayer-lrc {
+    display: none;
+  }
+  .aplayer .aplayer-lrc.aplayer-lrc-hide {
+      display:none !important;
+  }
+  .aplayer.aplayer-fixed .lrc-show {
+    display: block;
+    background: rgba(255, 255, 255, 0.8);
+  }
+</style>
+<meting-js
+
+    id="2660651585"
+
+    server="netease"
+
+    type="playlist"
+
+    fixed="true"
+
+    autoplay="false"
+
+    loop="all"
+
+    order="random"
+
+    preload="auto"
+
+    volume="0.7"
+
+    mutex="true"
+
+</meting-js>
+<script>
+  $(function(){
+    $('body').on('click', '.aplayer', function(){
+      if($('.aplayer-button').hasClass('aplayer-play')) {
+        $('.aplayer-lrc').removeClass('lrc-show');
+      } else {
+        $('.aplayer-lrc').addClass('lrc-show');
+      }
+    })
+  });
+</script>
+</body>
+</html>
