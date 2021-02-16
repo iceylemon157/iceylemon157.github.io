@@ -246,7 +246,7 @@
       <p class="entry-census">
         <span>
           <a href="">
-            <img src="https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg">
+            <img src="https://i.imgur.com/2DK6wa4.png">
           </a>
         </span>
         <span>
@@ -269,7 +269,7 @@
         
         <div class="entry-content">
           <h1 id="LG4169-天使的襪子-CDQ分治"><a href="#LG4169-天使的襪子-CDQ分治" class="headerlink" title="[LG4169] 天使的襪子 (CDQ分治)"></a>[LG4169] 天使的襪子 (CDQ分治)</h1><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4169">題目連結</a></p>
-<h2 id="CDQ分治："><a href="#CDQ分治：" class="headerlink" title="CDQ分治："></a>CDQ分治：</h2><p>最近補了一直想要學的CDQ分治。研究了很久才終於稍微搞懂他在幹嘛QQ。CDQ分治主要在處理三維偏序的問題，它主要可以做三件事情：</p>
+<h2 id="CDQ分治"><a href="#CDQ分治" class="headerlink" title="CDQ分治"></a>CDQ分治</h2><p>最近補了一直想要學的CDQ分治。研究了很久才終於稍微搞懂他在幹嘛QQ。CDQ分治主要在處理三維偏序的問題，它主要可以做三件事情：</p>
 <ol>
 <li>解決和點對有關的問題</li>
 <li>優化 $1D/1D$ 動態規劃</li>
@@ -278,16 +278,114 @@
 <p>我覺得網路上有很多資料(ex:<a target="_blank" rel="noopener" href="https://oi-wiki.org/misc/cdq-divide/">OI wiki</a>)都講得很好了，所以這裡就不放詳細說明了。</p>
 <p>昨天在學的時候我總共學了 $1$ 跟 $3$ 兩個用途。$1$ 就是最經典的三維偏序的問題，例如<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3810">模板 三維偏序</a> 跟 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3157">動態逆序對</a> 這兩題。這兩題都只是模板題而已，沒什麼特別的。但是我第二題寫超久QQ，我在寫那題的時候才稍微了解CDQ分治到底可以做什麼。</p>
 <p>後來我就去學將動態問題轉成靜態問題的方法。會想要先學這個是因為進階指南裡面有詳解，我覺得講的好像比OI Wiki還要好懂（？。實際上要怎麼做呢？對於區間 $[L, R]$ 而言，會分治到 $[L, mid]$ 跟 $[mid + 1, R]$ 兩個區間。對於橫跨兩邊的答案，要做的是計算左區間的修改對右區間的貢獻就好了。</p>
-<h2 id="題意："><a href="#題意：" class="headerlink" title="題意："></a>題意：</h2><p>一開始平面上有 $N$ 個點，總共有 $M$ 次詢問，每一次詢問會有以下兩種操作：</p>
+<h2 id="題意"><a href="#題意" class="headerlink" title="題意"></a>題意</h2><p>一開始平面上有 $N$ 個點，總共有 $M$ 次詢問，每一次詢問會有以下兩種操作：</p>
 <ol>
 <li>在平面上新增一個點 $(x,y)$</li>
 <li>詢問離點 $(x,y)$ 最近的點的距離(曼哈頓距離)</li>
 </ol>
-<h2 id="題解："><a href="#題解：" class="headerlink" title="題解："></a>題解：</h2><p>先考慮沒有修改的操作。看到題目求的是曼哈頓距離，就代表有絕對值。絕對值是個很麻煩的東西，這題可以考慮分case討論。先只考慮查詢的點在左下角的case，詢問就會等價於求 $\min\limits_{i<br>\in [1,N],x_i\leq x,y_i\leq y}NaN$，也就是說需要得到 $x_i+y_i$ 的最大值，這就是個二維偏序。對於另外三個case而言，只要把座標變換一下讓他們變到左下角就可以了(透過一些數學)。</p>
+<h2 id="題解"><a href="#題解" class="headerlink" title="題解"></a>題解</h2><p>先考慮沒有修改的操作。看到題目求的是曼哈頓距離，就代表有絕對值。絕對值是個很麻煩的東西，這題可以考慮分case討論。先只考慮查詢的點在左下角的case，詢問就會等價於求 $\min\limits_{i<br>\in [1,N],x_i\leq x,y_i\leq y}NaN$，也就是說需要得到 $x_i+y_i$ 的最大值，這就是個二維偏序。對於另外三個case而言，只要把座標變換一下讓他們變到左下角就可以了(透過一些數學)。</p>
 <p>到了有修改的時候，每次詢問就變成對於一個詢問 $(x,y)$，找到時間戳在這個詢問之前且 $x_i\leq x,y_i\leq y$ 中 $x_i+y_i$ 的最大值。這樣就變成一個三維偏序的問題了，CDQ分治gogo。用上面提到的方法做就可以了。</p>
-<h2 id="心得："><a href="#心得：" class="headerlink" title="心得："></a>心得：</h2><p>我原本想自己解，但解到後來我發現自己還是不太知道要怎麼做修改，我就去看別人的題解。然後我看了一個小時都看不懂別人的程式碼QAQ。我一直不知道他的第二關鍵字怎麼排序的，後來才知道他們都是在做分治的時候順便做merge sort。我好笨QAQQ。這題還有很多比較細節的地方。害我一直錯QQ。</p>
+<h2 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h2><p>我原本想自己解，但解到後來我發現自己還是不太知道要怎麼做修改，我就去看別人的題解。然後我看了一個小時都看不懂別人的程式碼QAQ。我一直不知道他的第二關鍵字怎麼排序的，後來才知道他們都是在做分治的時候順便做merge sort。我好笨QAQQ。這題還有很多比較細節的地方。害我一直錯QQ。</p>
 <p>AC Code：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb emplace_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> f first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> s second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FOR(i, n) for(int i = 1; i &lt;= n; i ++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FFOR(i, a, b) for(int i = a; i &lt;= b; i ++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pii pair<span class="meta-string">&lt;int, int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> all(x) x.begin(), x.end()</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mem(x, a) memset(x, a, sizeof(x))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> loli ios_base::sync_with_stdio(0), cin.tie(0)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> maxn = <span class="number">1e6</span> + <span class="number">50</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mxN = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, ans[maxn];</span><br><span class="line">pii p[maxn];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> t, x, y, opt;	</span><br><span class="line">&#125; a[maxn], b[maxn], tem[maxn];</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BIT</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> bit[maxn], n;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> a)</span> </span>&#123;</span><br><span class="line">		n = a;</span><br><span class="line">		FOR(i, n) bit[i] = <span class="number">0LL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">low</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x &amp; -x; &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">modi</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(; i &lt;= n; i += low(i)) bit[i] = max(bit[i], v);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">qry</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> ret = <span class="number">0LL</span>;</span><br><span class="line">		<span class="keyword">for</span>(; i &gt; <span class="number">0</span>; i -= low(i)) ret = max(bit[i], ret);</span><br><span class="line">		<span class="keyword">return</span> ret;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(; i &lt;= n; i += low(i)) bit[i] = <span class="number">0LL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; bit;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cdq</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	cdq(l, mid);</span><br><span class="line">	<span class="keyword">int</span> L = l;</span><br><span class="line">	<span class="keyword">int</span> cnt = l;</span><br><span class="line">	FFOR(i, mid + <span class="number">1</span>, r) &#123;</span><br><span class="line">		<span class="keyword">while</span>(L &lt;= mid <span class="keyword">and</span> a[L].x &lt;= a[i].x) &#123;</span><br><span class="line">			<span class="keyword">if</span>(a[L].opt == <span class="number">1</span>) bit.modi(a[L].y, a[L].x + a[L].y);</span><br><span class="line">			tem[cnt ++] = a[L];</span><br><span class="line">			L ++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[i].opt == <span class="number">2</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> t = bit.qry(a[i].y);</span><br><span class="line">			<span class="keyword">if</span>(t != <span class="number">0LL</span>) ans[a[i].t] = min(ans[a[i].t], a[i].x + a[i].y - t);			</span><br><span class="line">		&#125;</span><br><span class="line">		tem[cnt ++] = a[i];</span><br><span class="line">	&#125;</span><br><span class="line">    cdq(mid + <span class="number">1</span>, r);</span><br><span class="line">	FFOR(i, l, L - <span class="number">1</span>) <span class="keyword">if</span>(a[i].opt == <span class="number">1</span>) bit.clear(a[i].y);</span><br><span class="line">	<span class="keyword">while</span>(L &lt;= mid) tem[cnt ++] = a[L ++];</span><br><span class="line">	FFOR(i, l, r) a[i] = tem[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	loli;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	FOR(i, n) <span class="built_in">cin</span> &gt;&gt; b[i].x &gt;&gt; b[i].y, b[i].x ++, b[i].y ++, b[i].t = i, b[i].opt = <span class="number">1</span>;</span><br><span class="line">	FFOR(i, n + <span class="number">1</span>, n + m) &#123;</span><br><span class="line">		<span class="built_in">cin</span> &gt;&gt; b[i].opt &gt;&gt; b[i].x &gt;&gt; b[i].y;</span><br><span class="line">		b[i].x ++, b[i].y ++;</span><br><span class="line">		b[i].t = i;</span><br><span class="line">	&#125;</span><br><span class="line">	n += m;</span><br><span class="line">	<span class="keyword">auto</span> cmp1 = [](node a, node b) &#123;</span><br><span class="line">		<span class="keyword">return</span> a.t &lt; b.t;</span><br><span class="line">	&#125;;</span><br><span class="line">	mem(ans, INF);</span><br><span class="line">	bit.init(mxN + <span class="number">1</span>);</span><br><span class="line">	sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>, cmp1);</span><br><span class="line">	FOR(i, n) a[i] = b[i];</span><br><span class="line">	cdq(<span class="number">1</span>, n);</span><br><span class="line"></span><br><span class="line">	FOR(i, n) a[i] = b[i], a[i].x = mxN - a[i].x;</span><br><span class="line">	cdq(<span class="number">1</span>, n);</span><br><span class="line">	</span><br><span class="line">	FOR(i, n) a[i] = b[i], a[i].y = mxN - a[i].y;</span><br><span class="line">	cdq(<span class="number">1</span>, n);</span><br><span class="line">	</span><br><span class="line">	FOR(i, n) a[i] = b[i], a[i].y = mxN - a[i].y, a[i].x = mxN - a[i].x;</span><br><span class="line">	cdq(<span class="number">1</span>, n);</span><br><span class="line"></span><br><span class="line">	sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>, cmp1);</span><br><span class="line">	FOR(i, n) <span class="keyword">if</span>(a[i].opt == <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; ans[i] &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code class="c++">#include&lt;bits/stdc++.h&gt;
+#define int long long
+#define pb emplace_back
+#define INF 0x3f3f3f3f
+#define f first
+#define s second
+#define FOR(i, n) for(int i = 1; i &lt;= n; i ++)
+#define FFOR(i, a, b) for(int i = a; i &lt;= b; i ++)
+#define pii pair&lt;int, int&gt;
+#define mod 1000000007
+#define all(x) x.begin(), x.end()
+#define mem(x, a) memset(x, a, sizeof(x))
+#define loli ios_base::sync_with_stdio(0), cin.tie(0)
+using namespace std;
+const int maxn = 1e6 + 50;
+const int mxN = 1e6 + 5;
+int n, m, ans[maxn];
+pii p[maxn];
+
+struct node&#123;
+    int t, x, y, opt;    
+&#125; a[maxn], b[maxn], tem[maxn];
+
+struct BIT &#123;
+    int bit[maxn], n;
+    void init(int a) &#123;
+        n = a;
+        FOR(i, n) bit[i] = 0LL;
+    &#125;
+    int low(int x) &#123; return x &amp; -x; &#125;
+    void modi(int i, int v) &#123;
+        for(; i &lt;= n; i += low(i)) bit[i] = max(bit[i], v);
+    &#125;
+    int qry(int i) &#123;
+        int ret = 0LL;
+        for(; i &gt; 0; i -= low(i)) ret = max(bit[i], ret);
+        return ret;
+    &#125;
+    void clear(int i) &#123;
+        for(; i &lt;= n; i += low(i)) bit[i] = 0LL;
+    &#125;
+&#125; bit;
+
+void cdq(int l, int r) &#123;
+    if(l == r) return;
+    int mid = (l + r) &gt;&gt; 1;
+    cdq(l, mid);
+    int L = l;
+    int cnt = l;
+    FFOR(i, mid + 1, r) &#123;
+        while(L &lt;= mid and a[L].x &lt;= a[i].x) &#123;
+            if(a[L].opt == 1) bit.modi(a[L].y, a[L].x + a[L].y);
+            tem[cnt ++] = a[L];
+            L ++;
+        &#125;
+        if(a[i].opt == 2) &#123;
+            int t = bit.qry(a[i].y);
+            if(t != 0LL) ans[a[i].t] = min(ans[a[i].t], a[i].x + a[i].y - t);            
+        &#125;
+        tem[cnt ++] = a[i];
+    &#125;
+    cdq(mid + 1, r);
+    FFOR(i, l, L - 1) if(a[i].opt == 1) bit.clear(a[i].y);
+    while(L &lt;= mid) tem[cnt ++] = a[L ++];
+    FFOR(i, l, r) a[i] = tem[i];
+&#125;
+
+signed main()&#123;
+    loli;
+    cin &gt;&gt; n &gt;&gt; m;
+    FOR(i, n) cin &gt;&gt; b[i].x &gt;&gt; b[i].y, b[i].x ++, b[i].y ++, b[i].t = i, b[i].opt = 1;
+    FFOR(i, n + 1, n + m) &#123;
+        cin &gt;&gt; b[i].opt &gt;&gt; b[i].x &gt;&gt; b[i].y;
+        b[i].x ++, b[i].y ++;
+        b[i].t = i;
+    &#125;
+    n += m;
+    auto cmp1 = [](node a, node b) &#123;
+        return a.t &lt; b.t;
+    &#125;;
+    mem(ans, INF);
+    bit.init(mxN + 1);
+    sort(b + 1, b + n + 1, cmp1);
+    FOR(i, n) a[i] = b[i];
+    cdq(1, n);
+
+    FOR(i, n) a[i] = b[i], a[i].x = mxN - a[i].x;
+    cdq(1, n);
+
+    FOR(i, n) a[i] = b[i], a[i].y = mxN - a[i].y;
+    cdq(1, n);
+
+    FOR(i, n) a[i] = b[i], a[i].y = mxN - a[i].y, a[i].x = mxN - a[i].x;
+    cdq(1, n);
+
+    sort(a + 1, a + n + 1, cmp1);
+    FOR(i, n) if(a[i].opt == 2) cout &lt;&lt; ans[i] &lt;&lt; &quot;\n&quot;;
+&#125;
+</code></pre>
 
         </div>
         <!-- .entry-content -->
@@ -328,7 +426,7 @@
       
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="https://wx1.sinaimg.cn/large/006bYVyvgy1ftand2qurdj303c03cdfv.jpg" itemprop="image" alt="iceylemon157" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="https://i.imgur.com/2DK6wa4.png" itemprop="image" alt="iceylemon157" height="70" width="70"></a>
           <div class="meta">
             <span class="title">Author</span>
             <h3 itemprop="name">
