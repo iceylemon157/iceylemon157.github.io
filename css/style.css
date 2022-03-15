@@ -933,7 +933,7 @@ html {
 body {
     background:#fff;
     background-attachment:fixed;
-    cursor:url(images/cursor/normal.cur),auto
+    cursor:url(https://github.com/iceysheep157/iceysheep157.github.io/raw/master/images/cursor/normal.cur),default;
 }
 blockquote:before,blockquote:after,q:before,q:after {
     content:""
